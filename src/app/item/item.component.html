@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="this.itemService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>Write</label>
+        <input formControlName="groceryItem" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.groceryItem.errors}">
+        <div class="invalid-feedback" *ngIf="submitted && formControls.groceryItem.errors">Please enter something</div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="+">
+      </div>
+    </form>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-12">
+      <app-item-list></app-item-list>
+    </div>
+  </div>
