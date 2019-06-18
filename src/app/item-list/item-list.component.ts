@@ -7,11 +7,26 @@ import { ItemService } from "../shared/item.service";
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
+	itemArray = [];
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-  	this.itemService.getItems();
+  	this.itemService.getItems().subscribe(
+  		(list)=> {
+  			this.itemArray = list.map((i) => {
+  				return {
+  					$key: i.key,
+  					...i.payload.val()
+  				}
+  			})
+
+  		});
   }
+
+
+onDelete($key){
+        this.itemService.deleteItem($key);
+   }
 
 }

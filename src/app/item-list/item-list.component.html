@@ -1,3 +1,7 @@
-<p>
-  item-list works!
-</p>
+<div class="card" style="width: 18rem;">
+  <ng-container *ngFor="let item of itemArray">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><button class="btn btn-danger btn-sm" (click)="onDelete(item.$key)">-</button> {{item.groceryItem}}</li>
+    </ul>
+  </ng-container>
+</div>

@@ -26,4 +26,8 @@ export class ItemService {
   		groceryItem: item.groceryItem
   	});
   }
+
+  deleteItem($key: string){
+    this.itemList.remove($key);
+  }
 }
